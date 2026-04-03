@@ -27,7 +27,13 @@
     "events": "Annual Events"
   },
   "marquee": {
-    "items": ["TOURNAMENTS", "TRIPS", "FESTIVAL", "PUERTO RICO", "2026 SEASON", "SPORT FISHING", "CARIBBEAN"]
+    "item0": "TOURNAMENTS",
+    "item1": "TRIPS",
+    "item2": "FESTIVAL",
+    "item3": "PUERTO RICO",
+    "item4": "2026 SEASON",
+    "item5": "SPORT FISHING",
+    "item6": "CARIBBEAN"
   },
   "pillars": {
     "tournaments": {
@@ -62,7 +68,10 @@
   },
   "sponsors": {
     "heading": "Become a Sponsor",
-    "inquire": "Inquire"
+    "inquire": "Inquire",
+    "ctaHeading": "Ready to Partner With IFT?",
+    "ctaSub": "Connect your brand with Puerto Rico's premier sport fishing community. Reach passionate anglers, families, and fishing enthusiasts across our tournaments, festivals, and trips.",
+    "ctaButton": "Get in Touch"
   },
   "email": {
     "heading": "Join the Crew",

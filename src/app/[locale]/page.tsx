@@ -5,6 +5,7 @@ import { HeroParallax } from '@/components/hero/hero-parallax'
 import { OdometerStats } from '@/components/odometer/odometer-counter'
 import { KineticMarquee } from '@/components/marquee/kinetic-marquee'
 import { StickyCards } from '@/components/pillars/sticky-cards'
+import { GalleryStrip } from '@/components/gallery/gallery-strip'
 import { ScrollReveal } from '@/components/scroll-reveal/scroll-reveal'
 import { EmailCapture } from '@/components/email-capture/email-capture'
 
@@ -34,6 +35,7 @@ export default function HomePage() {
       <OdometerStats />
       <KineticMarquee />
       <StickyCards />
+      <GalleryStrip />
       <EmailCapture />
     </>
   )

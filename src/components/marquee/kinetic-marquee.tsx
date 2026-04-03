@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 export function KineticMarquee() {
   const t = useTranslations('marquee')
   const rowRef = useRef<HTMLDivElement>(null)
-  const items: string[] = t('items') as unknown as string[]
+  const items = Array.from({ length: 7 }, (_, i) => t(`item${i}`))
   const scrollVelocityRef = useRef(0)
   const animFrameRef = useRef<number>(0)
 
@@ -33,6 +33,7 @@ export function KineticMarquee() {
     let x = 0
 
     function animate() {
+      scrollVelocityRef.current *= 0.95
       const speed = (baseSpeed + scrollVelocityRef.current * 0.08) * speedMult
       x += speed / 60
       if (x >= contentWidth) x -= contentWidth

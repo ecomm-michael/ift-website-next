@@ -4,10 +4,16 @@ import { KineticMarquee } from '@/components/marquee/kinetic-marquee'
 
 vi.mock('next-intl', () => ({
   useTranslations: () => (key: string) => {
-    if (key === 'items') {
-      return ['TOURNAMENTS', 'TRIPS', 'FESTIVAL']
+    const map: Record<string, string> = {
+      item0: 'TOURNAMENTS',
+      item1: 'TRIPS',
+      item2: 'FESTIVAL',
+      item3: 'PUERTO RICO',
+      item4: '2026 SEASON',
+      item5: 'SPORT FISHING',
+      item6: 'CARIBBEAN',
     }
-    return key
+    return map[key] || key
   },
 }))
 

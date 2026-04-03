@@ -9,7 +9,7 @@ This is the **BETA** version of the International Fishing Team (IFT) website. Pr
 ## Project Context
 
 - **Orchestrator repo:** `G:/My Drive/AA_mpratt/Agents - Agentic Workflow/IFT/`
-- **Production HTML site:** `D:/ift-website-html/` (mirror of iftpr.com)
+- **Production HTML site:** `D:/ift-website-html/` (full mirror of iftpr.com — 142 files: HTML pages, shared.css, _includes.js, hero frames, images)
 - **This project:** `D:/ift-website-next/` (Next.js 16 + TinaCMS beta)
 - **Brand assets (source of truth):** `G:/My Drive/AA_mpratt/Agents - Agentic Workflow/IFT/assets/`
 

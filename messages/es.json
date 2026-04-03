@@ -27,7 +27,13 @@
     "events": "Eventos Anuales"
   },
   "marquee": {
-    "items": ["TORNEOS", "VIAJES", "FESTIVAL", "PUERTO RICO", "TEMPORADA 2026", "PESCA DEPORTIVA", "CARIBE"]
+    "item0": "TORNEOS",
+    "item1": "VIAJES",
+    "item2": "FESTIVAL",
+    "item3": "PUERTO RICO",
+    "item4": "TEMPORADA 2026",
+    "item5": "PESCA DEPORTIVA",
+    "item6": "CARIBE"
   },
   "pillars": {
     "tournaments": {
@@ -62,7 +68,10 @@
   },
   "sponsors": {
     "heading": "Conviértete en Patrocinador",
-    "inquire": "Consultar"
+    "inquire": "Consultar",
+    "ctaHeading": "¿Listo para Asociarte con IFT?",
+    "ctaSub": "Conecta tu marca con la comunidad de pesca deportiva premier de Puerto Rico. Llega a pescadores apasionados, familias y entusiastas en nuestros torneos, festivales y viajes.",
+    "ctaButton": "Contáctanos"
   },
   "email": {
     "heading": "Join the Crew",

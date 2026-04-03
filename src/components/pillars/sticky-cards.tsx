@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { basePath } from '@/lib/base-path'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -13,6 +14,7 @@ const pillarConfigs: Array<{
   id: string
   watermark: string
   gradient: string
+  backgroundImage?: string
   textColor: string
   btnClass: string
   href: string
@@ -23,7 +25,8 @@ const pillarConfigs: Array<{
   {
     id: 'tournaments',
     watermark: '01',
-    gradient: 'linear-gradient(135deg, var(--navy) 0%, #0B5575 40%, var(--teal) 100%)',
+    gradient: 'linear-gradient(rgba(11,45,69,0.65), rgba(11,45,69,0.75))',
+    backgroundImage: `url('${basePath}/images/pillar-tournaments.jpg')`,
     textColor: 'text-white',
     btnClass: 'bg-transparent text-white border-2 border-white/60 hover:bg-white/15 hover:border-white',
     href: '/tournaments',
@@ -41,7 +44,8 @@ const pillarConfigs: Array<{
   {
     id: 'trips',
     watermark: '02',
-    gradient: 'linear-gradient(135deg, var(--teal) 0%, #0bbec5 60%, var(--turquoise) 100%)',
+    gradient: 'linear-gradient(rgba(0,153,181,0.55), rgba(11,45,69,0.7))',
+    backgroundImage: `url('${basePath}/images/generated/pillar-trips.jpg')`,
     textColor: 'text-white',
     btnClass: 'bg-transparent text-white border-2 border-white/60 hover:bg-white/15 hover:border-white',
     href: '/trips',
@@ -58,7 +62,8 @@ const pillarConfigs: Array<{
   {
     id: 'festival',
     watermark: '03',
-    gradient: 'linear-gradient(135deg, var(--sandy) 0%, #F5DBA3 50%, var(--gold) 100%)',
+    gradient: 'linear-gradient(rgba(249,244,232,0.5), rgba(245,166,35,0.55))',
+    backgroundImage: `url('${basePath}/images/pillar-festival.jpg')`,
     textColor: 'text-navy',
     btnClass: 'bg-navy text-white border-2 border-navy hover:bg-[#0a2438] hover:border-[#0a2438]',
     href: '/festival',
@@ -133,8 +138,13 @@ export function StickyCards() {
       {pillarConfigs.map((config) => (
         <section
           key={config.id}
-          className={`pillar sticky top-0 w-full min-h-screen flex items-center overflow-hidden will-change-transform ${config.textColor}`}
-          style={{ background: config.gradient, zIndex: config.zIndex }}
+          className={`pillar sticky top-16 w-full min-h-screen flex items-center overflow-hidden will-change-transform ${config.textColor}`}
+          style={{
+            background: config.backgroundImage
+              ? `${config.gradient}, ${config.backgroundImage} center / cover no-repeat`
+              : config.gradient,
+            zIndex: config.zIndex,
+          }}
           id={config.id}
         >
           <div className="absolute top-1/2 right-[8%] -translate-y-1/2 font-[family-name:var(--font-barlow-condensed)] font-black text-[260px] leading-none select-none z-[1]"

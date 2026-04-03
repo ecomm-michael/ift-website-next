@@ -220,6 +220,72 @@ body {
   50% { transform: translateY(10px); }
 }
 
+/* Interior hero gradient shift */
+@keyframes interior-hero-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Avatar pulse — spring overshoot on team card avatars */
+@keyframes avatar-pulse {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.avatar-pulse {
+  animation: avatar-pulse 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Schedule timeline draw animation */
+.timeline-line {
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+}
+.timeline-line.visible {
+  transform: scaleY(1);
+}
+
+.timeline-dot {
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.timeline-dot.visible {
+  transform: scale(1);
+}
+
+/* Photo card scale-in */
+.photo-card-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.photo-card-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Photo card image hover zoom */
+.photo-card-scale .photo-card-img {
+  transition: transform 0.5s ease;
+}
+.photo-card-scale:hover .photo-card-img {
+  transform: scale(1.05);
+}
+
+/* Poster reveal */
+.poster-reveal {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.poster-reveal.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;
@@ -229,4 +295,82 @@ body {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ── Tournaments & Trips animation keyframes ── */
+
+/* Status badge pulse for open registrations */
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 153, 181, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(0, 153, 181, 0); }
+}
+
+/* "Most Popular" badge shine */
+@keyframes badge-shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Price count-up flash */
+@keyframes price-flash {
+  0% { color: var(--ift-turquoise); }
+  60% { color: var(--ift-turquoise); }
+  100% { color: var(--ift-teal); }
+}
+
+/* Table row stagger base */
+.schedule-row {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.schedule-row.row-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Mobile card stagger base */
+.mobile-event-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.mobile-event-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Package card stagger base */
+.package-card-anim {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.package-card-anim.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.package-card-anim.visible:hover {
+  transform: translateY(-4px);
+}
+
+/* Checklist item stagger */
+.checklist-item {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.checklist-item.item-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Accessibility — disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
