@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "tournaments": "Torneos",
+    "trips": "Viajes",
+    "festival": "Festival",
+    "sponsors": "Patrocinadores",
+    "about": "Nosotros",
+    "register": "Regístrate"
+  },
+  "hero": {
+    "label": "Puerto Rico · Caribe",
+    "line1": "Nacidos para Pescar.",
+    "line2": "Hechos para Ganar.",
+    "sub": "La experiencia de pesca deportiva premier de Puerto Rico — Torneos, Viajes y Festivales",
+    "cta1": "Ver Torneos 2026",
+    "cta2": "Explorar Viajes",
+    "scroll": "Desliza para Explorar"
+  },
+  "tagline": {
+    "eyebrow": "Est. Puerto Rico",
+    "heading": "La Experiencia de Pesca Deportiva Premier del Caribe",
+    "body": "Donde la pesca de alta mar de clase mundial se encuentra con la cultura caribeña. Desde torneos competitivos hasta viajes todo incluido, IFT reúne a los pescadores en las aguas de Puerto Rico para experiencias inolvidables durante todo el año."
+  },
+  "stats": {
+    "prizePool": "Bolsa de Premios Anual",
+    "anglers": "Pescadores Registrados",
+    "events": "Eventos Anuales"
+  },
+  "marquee": {
+    "items": ["TORNEOS", "VIAJES", "FESTIVAL", "PUERTO RICO", "TEMPORADA 2026", "PESCA DEPORTIVA", "CARIBE"]
+  },
+  "pillars": {
+    "tournaments": {
+      "heading": "Compite. Gana.\nRepite.",
+      "body": "Participa en los torneos de pesca más competitivos de Puerto Rico. Bolsas de premios de hasta $50,000. Todos los niveles bienvenidos — desde guerreros de fin de semana hasta profesionales experimentados.",
+      "cta": "Ver Torneos"
+    },
+    "trips": {
+      "heading": "Pesca. Come.\nRepite.",
+      "body": "Viajes de pesca todo incluido con alojamiento, comidas, equipo y guías expertos. Déjanos la planificación — solo ven y pesca. Desde $899/persona.",
+      "cta": "Explorar Viajes"
+    },
+    "festival": {
+      "heading": "El Festival de Pesca Más Grande de Puerto Rico.",
+      "body": "Música en vivo, comida local, competencias de pesca y comunidad. Para toda la familia y abierto a todos. Una celebración anual de la cultura pesquera caribeña que no te puedes perder.",
+      "cta": "Detalles del Festival"
+    }
+  },
+  "events": {
+    "heading": "Próximos Eventos",
+    "season": "Temporada 2026",
+    "register": "Registrarse",
+    "learnMore": "Más Info"
+  },
+  "about": {
+    "eyebrow": "Nuestra Historia",
+    "heading": "Nacidos del amor por el mar.",
+    "p1": "El International Fishing Team comenzó con una creencia simple: las aguas de Puerto Rico merecen una organización de pesca deportiva de clase mundial. Una que compita al más alto nivel manteniéndose arraigada en la cultura y comunidad del Caribe.",
+    "p2": "Desde nuestro primer torneo frente a la costa de Fajardo hasta un calendario creciente de doce eventos anuales, IFT se ha convertido en el hogar de pescadores serios y recién llegados apasionados. Organizamos torneos, viajes todo incluido y el festival de pesca más grande de la isla.",
+    "p3": "Esto no se trata solo de atrapar peces. Se trata de construir comunidad, hacer crecer el deporte y compartir la magia de las aguas azul profundo de Puerto Rico con el mundo.",
+    "meetTeam": "Conoce al Equipo"
+  },
+  "sponsors": {
+    "heading": "Conviértete en Patrocinador",
+    "inquire": "Consultar"
+  },
+  "email": {
+    "heading": "Join the Crew",
+    "headingEs": "Únete al Equipo",
+    "sub": "Recibe calendarios de torneos, anuncios de viajes y ofertas exclusivas en tu correo.",
+    "placeholder": "Tu correo electrónico",
+    "submit": "Suscribirse",
+    "disclaimer": "Sin spam. Cancela cuando quieras. / No spam. Unsubscribe anytime."
+  },
+  "footer": {
+    "tagline": "International Fishing Team\nLa Experiencia de Pesca Deportiva Premier de Puerto Rico",
+    "navigate": "Navegar",
+    "legal": "Legal",
+    "contact": "Contacto",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "cookies": "Política de Cookies",
+    "copyright": "© 2026 International Fishing Team · Puerto Rico · Todos los derechos reservados."
+  }
+}
