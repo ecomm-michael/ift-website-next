@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-navy: #0B2D45;
+  --color-teal: #0099B5;
+  --color-turquoise: #00C4CC;
+  --color-gold: #F5A623;
+  --color-coral: #E84E3A;
+  --color-seafoam: #EDF7F9;
+  --color-sandy: #F9F4E8;
+}
+
+:root {
+  /* CSS Custom Properties (used in components, GSAP, raw CSS) */
+  --navy: #0B2D45;
+  --teal: #0099B5;
+  --turquoise: #00C4CC;
+  --gold: #F5A623;
+  --coral: #E84E3A;
+  --seafoam: #EDF7F9;
+  --sandy: #F9F4E8;
+  --white: #FFFFFF;
+}
+
+/* Base reset matching production site */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  color: var(--navy);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Utility classes matching production */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.section-pad {
+  padding: 100px 0;
+}
+
+.eyebrow {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
