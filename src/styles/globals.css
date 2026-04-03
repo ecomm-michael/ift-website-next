@@ -1,32 +1,167 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-@theme {
-  /* Brand Colors */
-  --color-navy: #0B2D45;
-  --color-teal: #0099B5;
-  --color-turquoise: #00C4CC;
-  --color-gold: #F5A623;
-  --color-coral: #E84E3A;
-  --color-seafoam: #EDF7F9;
-  --color-sandy: #F9F4E8;
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* shadcn semantic color tokens — mapped to :root CSS vars */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radius tokens */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* IFT Brand Colors — Tailwind tokens (no hardcoded hex) */
+  --color-navy: var(--ift-navy);
+  --color-teal: var(--ift-teal);
+  --color-turquoise: var(--ift-turquoise);
+  --color-gold: var(--ift-gold);
+  --color-coral: var(--ift-coral);
+  --color-seafoam: var(--ift-seafoam);
+  --color-sandy: var(--ift-sandy);
+
+  /* Font tokens — literal names to avoid Tailwind v4 circular reference bug */
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
 }
 
 :root {
-  /* CSS Custom Properties (used in components, GSAP, raw CSS) */
-  --navy: #0B2D45;
-  --teal: #0099B5;
-  --turquoise: #00C4CC;
-  --gold: #F5A623;
-  --coral: #E84E3A;
-  --seafoam: #EDF7F9;
-  --sandy: #F9F4E8;
+  /* shadcn semantic tokens */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* IFT Brand raw CSS custom properties */
+  --ift-navy: #0B2D45;
+  --ift-teal: #0099B5;
+  --ift-turquoise: #00C4CC;
+  --ift-gold: #F5A623;
+  --ift-coral: #E84E3A;
+  --ift-seafoam: #EDF7F9;
+  --ift-sandy: #F9F4E8;
   --white: #FFFFFF;
+
+  /* Legacy aliases for GSAP and raw CSS usage */
+  --navy: var(--ift-navy);
+  --teal: var(--ift-teal);
+  --turquoise: var(--ift-turquoise);
+  --gold: var(--ift-gold);
+  --coral: var(--ift-coral);
+  --seafoam: var(--ift-seafoam);
+  --sandy: var(--ift-sandy);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 /* Base reset matching production site */
 *, *::before, *::after {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -35,9 +170,9 @@ html {
 }
 
 body {
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
-  color: var(--navy);
+  color: var(--ift-navy);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -56,7 +191,7 @@ body {
 }
 
 .eyebrow {
-  font-family: 'Barlow', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 3px;
