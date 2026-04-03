@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
-import { Barlow, Barlow_Condensed } from 'next/font/google'
+import { Barlow, Barlow_Condensed, Geist } from 'next/font/google'
 import '@/styles/globals.css'
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -30,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       suppressHydrationWarning
-      className={`${barlow.variable} ${barlowCondensed.variable}`}
+      className={cn(barlow.variable, barlowCondensed.variable, "font-sans", geist.variable)}
     >
       <body className="font-[family-name:var(--font-barlow)]">
         {children}
