@@ -3,11 +3,12 @@ import type { NextConfig } from 'next'
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
-const basePath = '/ift-website-next'
+const isGitHubPages = !!process.env.GITHUB_ACTIONS
+const basePath = isGitHubPages ? '/ift-website-next' : ''
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  basePath,
+  ...(isGitHubPages && { output: 'export' }),
+  basePath: basePath || undefined,
   images: { unoptimized: true },
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,

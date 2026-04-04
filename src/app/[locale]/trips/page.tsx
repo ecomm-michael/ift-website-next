@@ -7,6 +7,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { InteriorHero } from '@/components/interior-hero/interior-hero'
+import { basePath } from '@/lib/base-path'
 import { PriceCounter } from '@/components/price-counter/price-counter'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -113,7 +114,7 @@ export default function TripsPage() {
     <>
       {/* ── HERO with parallax + fade-up content ── */}
       <InteriorHero
-        imageSrc="/images/generated/pillar-trips.jpg"
+        imageSrc={`${basePath}/images/generated/pillar-trips.jpg`}
         imageAlt="Sport fishing trip in Puerto Rico"
         overlayClass="bg-gradient-to-t from-navy/70 to-navy/30"
         minHeight="60vh"

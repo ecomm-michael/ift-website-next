@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   title: "International Fishing Team — Puerto Rico's Premier Sport Fishing Experience",
   description:
     "Tournaments, Trips & Festivals. Puerto Rico's Premier Sport Fishing Experience.",
+  icons: {
+    icon: '/favicon.png',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({

@@ -115,7 +115,7 @@ export default function AboutPage() {
             </div>
             {/* Founders image — entrance + scroll parallax */}
             <ParallaxImage
-              src="/images/about-founders.jpg"
+              src={`${basePath}/images/about-founders.jpg`}
               alt="IFT Founders"
               yPercent={-8}
               scrub={1}
@@ -165,6 +165,42 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team Members */}
+      <section className="bg-white section-pad relative">
+        <div className="container">
+          <ScrollReveal>
+            <div className="eyebrow text-teal text-center mb-2">The People</div>
+            <h2 className="font-[family-name:var(--font-barlow-condensed)] font-bold text-4xl text-navy text-center mb-12">Meet the Team</h2>
+          </ScrollReveal>
+          <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1 max-w-[900px] mx-auto">
+            <ScrollReveal>
+              <div className="text-center">
+                <div className="w-20 h-20 rounded-full bg-teal text-white font-[family-name:var(--font-barlow-condensed)] font-bold text-2xl flex items-center justify-center mx-auto mb-4">PN</div>
+                <h3 className="font-[family-name:var(--font-barlow-condensed)] font-bold text-xl text-navy">Pedro Navaro</h3>
+                <div className="font-[family-name:var(--font-barlow)] text-sm text-teal uppercase tracking-wider mb-2">Operations Director</div>
+                <p className="font-[family-name:var(--font-barlow)] text-sm text-navy/60">Leading tournament logistics and operations with BRS expertise.</p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div className="text-center">
+                <div className="w-20 h-20 rounded-full bg-teal text-white font-[family-name:var(--font-barlow-condensed)] font-bold text-2xl flex items-center justify-center mx-auto mb-4">GO</div>
+                <h3 className="font-[family-name:var(--font-barlow-condensed)] font-bold text-xl text-navy">Gilmaris Ocasio</h3>
+                <div className="font-[family-name:var(--font-barlow)] text-sm text-teal uppercase tracking-wider mb-2">Event Coordinator</div>
+                <p className="font-[family-name:var(--font-barlow)] text-sm text-navy/60">Bringing world-class event management and coordination to every IFT experience.</p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div className="text-center">
+                <div className="w-20 h-20 rounded-full bg-teal text-white font-[family-name:var(--font-barlow-condensed)] font-bold text-2xl flex items-center justify-center mx-auto mb-4">CY</div>
+                <h3 className="font-[family-name:var(--font-barlow-condensed)] font-bold text-xl text-navy">Carla Yon</h3>
+                <div className="font-[family-name:var(--font-barlow)] text-sm text-teal uppercase tracking-wider mb-2">Community Relations</div>
+                <p className="font-[family-name:var(--font-barlow)] text-sm text-navy/60">Connecting local communities and sponsors to grow Puerto Rico's fishing culture.</p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* Contact section with staggered items */}
       <section className="bg-white section-pad relative" ref={contactSectionRef}>
         <div className="container">
@@ -178,7 +214,7 @@ export default function AboutPage() {
             <div className="contact-item text-center">
               <div className="text-3xl mb-3">📍</div>
               <div className="font-[family-name:var(--font-barlow-condensed)] font-bold text-lg text-navy uppercase mb-1">Location</div>
-              <p className="font-[family-name:var(--font-barlow)] text-sm text-navy/60">San Juan, Puerto Rico</p>
+              <p className="font-[family-name:var(--font-barlow)] text-sm text-navy/60">Dorado, Puerto Rico</p>
             </div>
             <div className="contact-item text-center">
               <div className="text-3xl mb-3">📱</div>

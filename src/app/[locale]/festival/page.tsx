@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { InteriorHero } from '@/components/interior-hero/interior-hero'
+import { basePath } from '@/lib/base-path'
 import Link from 'next/link'
 import Image from 'next/image'
 import gsap from 'gsap'
@@ -144,7 +145,7 @@ function PosterReveal() {
     <div ref={posterRef} className="flex justify-center mt-10">
       <div className={`w-full max-w-[480px] rounded-xl relative overflow-hidden shadow-[0_8px_40px_rgba(11,45,69,0.15)] poster-reveal ${visible ? 'visible' : ''}`}>
         <Image
-          src="/images/festival-teaser.png"
+          src={`${basePath}/images/festival-teaser.png`}
           alt="International Fishing Festival 2026 poster"
           width={480}
           height={680}
@@ -189,7 +190,7 @@ function LocationSection() {
       <div className="location-item text-center">
         <div className="text-3xl mb-3">📍</div>
         <div className="font-[family-name:var(--font-barlow-condensed)] font-bold text-lg text-navy uppercase mb-1">Location</div>
-        <p className="font-[family-name:var(--font-barlow)] text-sm text-navy/60">San Juan, Puerto Rico</p>
+        <p className="font-[family-name:var(--font-barlow)] text-sm text-navy/60">Dorado, Puerto Rico</p>
       </div>
       <div className="location-item text-center">
         <div className="text-3xl mb-3">📅</div>
@@ -215,13 +216,13 @@ export default function FestivalPage() {
     <>
       {/* Hero — image parallax + gradient shift + content stagger */}
       <InteriorHero
-        imageSrc="/images/generated/event-festival.jpg"
+        imageSrc={`${basePath}/images/generated/event-festival.jpg`}
         imageAlt="IFT Annual Festival"
         gradient="linear-gradient(135deg, var(--ift-navy) 0%, var(--ift-teal) 50%, var(--ift-turquoise) 100%)"
         gradientCycleDuration={12}
         overlayClass="bg-navy/60"
       >
-        <div className="eyebrow text-white/70">August 2026 · San Juan</div>
+        <div className="eyebrow text-white/70">August 2026 · Dorado</div>
         <h1 className="font-[family-name:var(--font-barlow-condensed)] font-black text-[68px] text-white uppercase leading-[1.0] tracking-tight max-md:text-[42px]">
           {t('heading')}
         </h1>
@@ -274,10 +275,10 @@ export default function FestivalPage() {
           <div className="eyebrow text-teal text-center mb-10">Festival Gallery</div>
           <div className="grid grid-cols-2 gap-5 mb-8 max-md:grid-cols-1">
             {[
-              { src: '/images/festival-food.jpg', alt: 'Local food trucks and vendors' },
-              { src: '/images/festival-artisan.jpg', alt: 'Artisan vendor showcasing goods' },
-              { src: '/images/festival-crowd.jpg', alt: 'Festival crowd enjoying entertainment' },
-              { src: '/images/festival-community.jpg', alt: 'Friends and families at the festival' },
+              { src: `${basePath}/images/festival-food.jpg`, alt: 'Local food trucks and vendors' },
+              { src: `${basePath}/images/festival-artisan.jpg`, alt: 'Artisan vendor showcasing goods' },
+              { src: `${basePath}/images/festival-crowd.jpg`, alt: 'Festival crowd enjoying entertainment' },
+              { src: `${basePath}/images/festival-community.jpg`, alt: 'Friends and families at the festival' },
             ].map((img, i) => (
               <PhotoCard key={img.src} src={img.src} alt={img.alt} staggerIndex={i} />
             ))}

@@ -56,7 +56,7 @@ export function Footer() {
               {t('contact')}
             </h4>
             <a href="mailto:info@iftpr.com" className="block font-[family-name:var(--font-barlow)] text-sm text-navy/55 no-underline mb-3 transition-colors duration-200 hover:text-teal">info@iftpr.com</a>
-            <a href="#" className="block font-[family-name:var(--font-barlow)] text-sm text-navy/55 no-underline mb-3 transition-colors duration-200 hover:text-teal">San Juan, Puerto Rico</a>
+            <a href="#" className="block font-[family-name:var(--font-barlow)] text-sm text-navy/55 no-underline mb-3 transition-colors duration-200 hover:text-teal">Dorado, Puerto Rico</a>
           </div>
         </div>
 

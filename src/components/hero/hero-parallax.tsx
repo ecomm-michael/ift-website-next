@@ -68,33 +68,57 @@ export function HeroParallax() {
     }
   }, [drawFrame])
 
-  // Preload frames on mount
+  // Lazy-load frames on demand: only load frame 0 eagerly, then load
+  // ahead by LOOKAHEAD frames around the current scroll position.
+  // This prevents firing 120 simultaneous requests on page load which
+  // saturates the browser's HTTP connection pool and causes the page to hang.
+  const frameStep = useRef(1)
+  const frameCount = useRef(TOTAL_FRAMES)
+
+  const getFrameSrc = useCallback((i: number) => {
+    const frameNumber = String(i * frameStep.current + 1).padStart(3, '0')
+    return `${basePath}/hero/frames/frame-${frameNumber}.jpg`
+  }, [])
+
+  const loadFrame = useCallback((i: number) => {
+    if (framesRef.current[i]) return // already loaded or loading
+    const img = new Image()
+    img.onload = () => {
+      if (i === 0 && currentFrameRef.current < 0) {
+        drawFrame(0)
+        setFallbackVisible(false)
+      }
+    }
+    framesRef.current[i] = img
+    img.src = getFrameSrc(i)
+  }, [drawFrame, getFrameSrc])
+
+  // Preload a window of frames around the target index
+  const preloadAround = useCallback((targetIdx: number) => {
+    const LOOKAHEAD = 8
+    const total = frameCount.current
+    const start = Math.max(0, targetIdx - 2)
+    const end = Math.min(total - 1, targetIdx + LOOKAHEAD)
+    for (let i = start; i <= end; i++) {
+      loadFrame(i)
+    }
+  }, [loadFrame])
+
   useEffect(() => {
     const isMobile = window.innerWidth <= MOBILE_BREAKPOINT
-    const frameCount = isMobile ? MOBILE_FRAME_COUNT : TOTAL_FRAMES
-    const frameStep = isMobile ? MOBILE_FRAME_STEP : 1
+    frameCount.current = isMobile ? MOBILE_FRAME_COUNT : TOTAL_FRAMES
+    frameStep.current = isMobile ? MOBILE_FRAME_STEP : 1
 
     // Size canvas initially
     sizeCanvas()
 
-    // Fix 2: assign ref array before the loop so onload callbacks on cached
-    // images can access framesRef.current immediately when they fire.
-    framesRef.current = []
-    for (let i = 0; i < frameCount; i++) {
-      const img = new Image()
-      img.onload = () => {
-        if (i === 0 && currentFrameRef.current < 0) {
-          drawFrame(0)
-          setFallbackVisible(false)
-        }
-      }
-      framesRef.current[i] = img
-      const frameNumber = String(i * frameStep + 1).padStart(3, '0')
-      img.src = `${basePath}/hero/frames/frame-${frameNumber}.jpg`
-    }
+    // Pre-allocate the ref array (slots start undefined, filled on demand)
+    framesRef.current = new Array(frameCount.current)
 
-    // Fix 3: safety net — if frame 0's onload fired before the ref was ready,
-    // this catches it and draws the first frame after a short delay.
+    // Only load frame 0 eagerly so the canvas shows something immediately
+    loadFrame(0)
+
+    // Safety net: if frame 0's onload fired before the ref was assigned
     const fallbackTimer = setTimeout(() => {
       if (currentFrameRef.current < 0 && framesRef.current[0]?.complete) {
         drawFrame(0)
@@ -108,7 +132,7 @@ export function HeroParallax() {
       window.removeEventListener('resize', sizeCanvas)
       clearTimeout(fallbackTimer)
     }
-  }, [drawFrame, sizeCanvas])
+  }, [drawFrame, sizeCanvas, loadFrame])
 
   useGSAP(
     () => {
@@ -116,7 +140,7 @@ export function HeroParallax() {
       if (!section) return
 
       const isMobile = window.innerWidth <= MOBILE_BREAKPOINT
-      const frameCount = isMobile ? MOBILE_FRAME_COUNT : TOTAL_FRAMES
+      const total = isMobile ? MOBILE_FRAME_COUNT : TOTAL_FRAMES
 
       // Pin hero and scrub frames on scroll
       ScrollTrigger.create({
@@ -132,9 +156,11 @@ export function HeroParallax() {
           }
           // Scrub to target frame — gated behind rAF so we only draw once per frame
           const targetFrame = Math.min(
-            frameCount - 1,
-            Math.floor(self.progress * frameCount)
+            total - 1,
+            Math.floor(self.progress * total)
           )
+          // Lazily load frames ahead of current scroll position
+          preloadAround(targetFrame)
           if (targetFrame !== currentFrameRef.current && !rafPendingRef.current) {
             rafPendingRef.current = true
             requestAnimationFrame(() => {
@@ -176,7 +202,7 @@ export function HeroParallax() {
       // Refresh after fonts load so layout-dependent triggers are accurate
       document.fonts.ready.then(() => ScrollTrigger.refresh())
     },
-    { scope: sectionRef }
+    { scope: sectionRef, dependencies: [preloadAround, drawFrame] }
   )
 
   return (

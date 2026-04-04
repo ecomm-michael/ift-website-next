@@ -7,6 +7,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import { InteriorHero } from '@/components/interior-hero/interior-hero'
+import { basePath } from '@/lib/base-path'
 import { ScrollReveal } from '@/components/scroll-reveal/scroll-reveal'
 import { Accordion } from '@/components/accordion/accordion'
 
@@ -14,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 /* ── Tournament schedule data ── */
 const schedule = [
-  { date: 'Jun 15, 2026', name: 'Summer Slam', location: 'San Juan, PR', prize: '$10,000', status: 'open' as const },
+  { date: 'Jun 15, 2026', name: 'Summer Slam', location: 'Dorado, PR', prize: '$10,000', status: 'open' as const },
   { date: 'Aug 22, 2026', name: 'Blue Marlin Classic', location: 'Fajardo, PR', prize: '$25,000', status: 'upcoming' as const },
   { date: 'Sep 12, 2026', name: 'Dorado Derby', location: 'Rincon, PR', prize: '$5,000', status: 'upcoming' as const },
   { date: 'Oct 3, 2026', name: 'Wahoo Open', location: 'Cabo Rojo, PR', prize: '$8,000', status: 'upcoming' as const },
@@ -132,7 +133,7 @@ export default function TournamentsPage() {
     <>
       {/* ── HERO with parallax + slide-from-left content ── */}
       <InteriorHero
-        imageSrc="/images/generated/event-tournament.jpg"
+        imageSrc={`${basePath}/images/generated/event-tournament.jpg`}
         imageAlt="Tournament fishing in Puerto Rico"
         overlayClass="bg-gradient-to-t from-navy/70 to-navy/30"
         minHeight="60vh"
